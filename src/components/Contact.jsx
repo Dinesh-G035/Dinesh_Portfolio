@@ -6,11 +6,11 @@ import {
 
 /* ── Contact info items ──────────────────────────────────────── */
 const contactInfo = [
-  { icon: FaEnvelope, label: 'Email', value: 'dinesh@example.com', href: 'mailto:dinesh@example.com' },
-  { icon: FaPhone, label: 'Phone', value: '+91 XXXXX XXXXX', href: 'tel:+91XXXXXXXXXX' },
+  { icon: FaEnvelope, label: 'Email', value: 'dinesh@dineshcse3778.com', href: 'mailto:dineshcse3778@gmail.com' },
+  { icon: FaPhone, label: 'Phone', value: '+918122920161', href: 'tel:+918122920161' },
   { icon: FaMapMarkerAlt, label: 'Location', value: 'Tamil Nadu, India', href: null },
-  { icon: FaGithub, label: 'GitHub', value: 'github.com/dinesh', href: 'https://github.com' },
-  { icon: FaLinkedin, label: 'LinkedIn', value: 'linkedin.com/in/dinesh', href: 'https://linkedin.com' },
+  { icon: FaGithub, label: 'GitHub', value: 'github.com/Dinesh-G035', href: 'https://github.com/Dinesh-G035' },
+  { icon: FaLinkedin, label: 'LinkedIn', value: 'linkedin.com/in/dineshg09', href: 'https://linkedin.com/in/dineshg09' },
 ];
 
 const Contact = () => {
