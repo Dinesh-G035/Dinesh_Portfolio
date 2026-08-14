@@ -65,19 +65,11 @@ const services = [
   },
 ];
 
-/* ── Statistics data ─────────────────────────────────────────── */
-const stats = [
-  { label: 'Completed Projects', value: 10, suffix: '+' },
-  { label: 'Hackathons', value: 2, suffix: '+' },
-  { label: 'Internships', value: 3, suffix: '' },
-  { label: 'Technologies', value: 15, suffix: '+' },
-];
-
 const About = () => {
   const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <section id="about" className="py-20 bg-[#0B1120] font-['Poppins']">
+    <section id="about" className="pt-22 bg-[#0B1120] font-['Poppins']">
       <div className="container mx-auto px-6 max-w-6xl">
         {/* ═══════════════ ABOUT ME ═══════════════ */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center mb-20">
@@ -137,7 +129,7 @@ const About = () => {
             </p>
             <p className="text-[#CBD5E1] leading-relaxed text-justify">
               My interests include backend development and UI/UX design. I love learning new technologies and transforming 
-              ideas into real-world software that makes a difference.
+              ideas into real world software that makes a difference.
             </p>
           </motion.div>
         </div>
@@ -150,7 +142,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">
+          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-5">
             What I <span className="gradient-text">Do</span>
           </h3>
 
@@ -174,32 +166,6 @@ const About = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* ═══════════════ STATISTICS ═══════════════ */}
-        <div
-          ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="glass-card rounded-2xl p-6 text-center"
-            >
-              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                {statsInView ? (
-                  <AnimatedNumber value={stat.value} duration={2.5} suffix={stat.suffix} />
-                ) : (
-                  `0${stat.suffix}`
-                )}
-              </div>
-              <p className="text-sm text-[#94A3B8]">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

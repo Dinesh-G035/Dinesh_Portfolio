@@ -55,7 +55,7 @@ const Contact = () => {
     } px-4 py-3 text-sm text-white placeholder-[#94A3B8] outline-none transition-all focus:border-[#F97316] focus:shadow-[0_0_15px_rgba(249,115,22,.15)]`;
 
   return (
-    <section id="contact" className="py-20 bg-[#0B1120] font-['Poppins']">
+    <section id="contact" className="pt-10 pb-20 bg-[#0B1120] font-['Poppins']">
       <div className="container mx-auto px-6 max-w-6xl">
         {/* ── Section heading ── */}
         <motion.div
