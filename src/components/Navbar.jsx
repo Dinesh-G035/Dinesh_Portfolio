@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import resumePdf from '../assets/Dinesh_G_Resume.pdf';
 
 /* ── Navigation links ────────────────────────────────────────── */
 const navLinks = [
@@ -81,7 +82,8 @@ const Navbar = () => {
           {/* ── Resume button ── */}
           <li>
             <a
-              href="#"
+              href={resumePdf}
+              download="Dinesh_G_Resume.pdf"
               className="btn-secondary text-sm !py-2 !px-5"
               aria-label="Download Resume"
             >
@@ -127,7 +129,7 @@ const Navbar = () => {
                 </li>
               ))}
               <li>
-                <a href="#" className="btn-secondary text-sm !py-2 !px-5">
+                <a href={resumePdf} download="Dinesh_G_Resume.pdf" className="btn-secondary text-sm !py-2 !px-5">
                   Resume
                 </a>
               </li>

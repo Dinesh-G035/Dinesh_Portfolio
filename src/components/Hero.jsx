@@ -4,6 +4,8 @@ import { TypeAnimation } from 'react-type-animation';
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
 import { SiLeetcode, SiReact, SiNodedotjs, SiMongodb, SiPostgresql, SiGit, SiTailwindcss, SiFramer } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa6';
+import profileImage from '../assets/Dinesh G.jpeg';
+import resumePdf from '../assets/Dinesh_G_Resume.pdf';
 
 /* ── Floating tech icons ─────────────────────────────────────── */
 const floatingIcons = [
@@ -103,7 +105,7 @@ const Hero = () => {
             <a href="#contact" className="btn-primary">
               Hire Me
             </a>
-            <a href="#" className="btn-secondary">
+            <a href={resumePdf} download="Dinesh_G_Resume.pdf" className="btn-secondary">
               <FaDownload className="text-sm" /> Download Resume
             </a>
           </motion.div>
@@ -149,9 +151,13 @@ const Hero = () => {
             {/* Gradient blur behind image */}
             <div className="absolute inset-0 m-auto h-[250px] w-[250px] rounded-full md:h-[300px] md:w-[300px] bg-[#F97316]/10 blur-[60px]" />
 
-            {/* Profile image placeholder */}
-            <div className="relative z-10 flex h-[240px] w-[240px] items-center justify-center rounded-full border-4 border-[#F97316]/40 bg-[#111827] shadow-[0_0_60px_rgba(249,115,22,.2)] md:h-[290px] md:w-[290px]">
-              <span className="text-6xl font-bold gradient-text md:text-7xl select-none">DG</span>
+            {/* Profile image */}
+            <div className="relative z-10 overflow-hidden rounded-full border-4 border-[#F97316]/40 bg-[#111827] shadow-[0_0_60px_rgba(249,115,22,.2)] md:h-[290px] md:w-[290px] h-[240px] w-[240px]">
+              <img
+                src={profileImage}
+                alt="Dinesh G"
+                className="h-full w-full object-cover object-center"
+              />
             </div>
 
             {/* Floating tech icons */}
