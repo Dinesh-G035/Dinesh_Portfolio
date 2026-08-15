@@ -1,195 +1,498 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
-import { SiLeetcode, SiReact, SiNodedotjs, SiMongodb, SiPostgresql, SiGit, SiTailwindcss, SiFramer } from 'react-icons/si';
-import { FaJava } from 'react-icons/fa6';
-import profileImage from '../assets/Dinesh G.jpeg';
-import resumePdf from '../assets/Dinesh_G_Resume.pdf';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaDownload,
+  FaLaptopCode,
+  FaRocket,
+  FaCogs,
+  FaUserFriends,
+} from "react-icons/fa";
 
-/* ── Floating tech icons ─────────────────────────────────────── */
-const floatingIcons = [
-  { Icon: SiReact, color: '#61DAFB', x: -60, y: -80, delay: 0 },
-  { Icon: FaJava, color: '#ED8B00', x: 80, y: -60, delay: 0.5 },
-  { Icon: SiNodedotjs, color: '#339933', x: 100, y: 40, delay: 1 },
-  { Icon: SiMongodb, color: '#47A248', x: -90, y: 60, delay: 1.5 },
-  { Icon: SiPostgresql, color: '#4169E1', x: 60, y: 100, delay: 0.8 },
-  { Icon: SiGit, color: '#F05032', x: -100, y: 0, delay: 1.2 },
-  { Icon: SiTailwindcss, color: '#06B6D4', x: -50, y: 100, delay: 0.3 },
-  { Icon: SiFramer, color: '#FF0055', x: 110, y: -20, delay: 1.8 },
-];
+import {
+  SiLeetcode,
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiPostgresql,
+} from "react-icons/si";
+
+import { FaJava } from "react-icons/fa6";
+
+import profileImage from "../assets/611223104035_Dinesh_G_CSE.png";
+import resumePdf from "../assets/Dinesh_G_Resume.pdf";
+
+const TechIcon = ({ Icon, color, position, delay }) => {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: [0, -7, 0],
+      }}
+      transition={{
+        opacity: {
+          delay: 0.8 + delay,
+          duration: 0.4,
+        },
+        scale: {
+          delay: 0.8 + delay,
+          duration: 0.5,
+          type: "spring",
+        },
+        y: {
+          delay: 1 + delay,
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+      }}
+      whileHover={{
+        scale: 1.15,
+      }}
+      className={`
+        absolute
+        ${position}
+        z-40
+        flex
+        h-[62px]
+        w-[62px]
+        items-center
+        justify-center
+        rounded-2xl
+        border
+        border-white/10
+        bg-[#151B29]/95
+        shadow-[0_10px_35px_rgba(0,0,0,.45)]
+        backdrop-blur-xl
+        sm:h-[70px]
+        sm:w-[70px]
+      `}
+      style={{ color }}
+    >
+      <Icon className="text-2xl sm:text-3xl" />
+    </motion.div>
+  );
+};
 
 const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#0B1120] font-['Poppins']"
+      className="relative min-h-screen overflow-hidden bg-[#0B1120] font-['Poppins'] text-white"
     >
-      {/* ── Subtle background gradient blobs ── */}
-      <div className="pointer-events-none absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-[#F97316]/5 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-[#F97316]/5 blur-[120px]" />
+      {/* ================= BACKGROUND ================= */}
 
-      <div className="container mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-0">
-        {/* ═══════════════ LEFT COLUMN ═══════════════ */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-orange-500/[0.06] blur-[150px]" />
+
+        <div className="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-orange-500/[0.06] blur-[150px]" />
+
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
+      </div>
+
+      {/* ================= HERO CONTAINER ================= */}
+
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 items-center gap-10 px-6 py-24 sm:px-10 md:grid-cols-2 md:gap-4 md:px-12 lg:px-16">
+        {/* ==================================================
+            LEFT SIDE
+        ================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
+          initial={{ opacity: 0, x: -70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="order-2 text-center md:order-1 md:text-left"
+          transition={{ duration: 0.9 }}
+          className="z-20 order-2 md:order-1"
         >
           {/* Greeting */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="mb-2 text-lg text-[#CBD5E1]"
-          >
-            Hello <span className="inline-block animate-[wave_2s_ease-in-out_infinite] origin-[70%_70%]">👋</span>
-          </motion.p>
 
-          {/* Name */}
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
+            transition={{ delay: 0.2 }}
+            className="mb-6 inline-flex items-center rounded-full border border-orange-500/40 bg-white/[0.025] px-5 py-2.5 text-sm text-orange-400 backdrop-blur-xl"
           >
-            I'm{' '}
-            <span className="gradient-text">Dinesh G</span>
+            👋 <span className="ml-2">Hi, I'm Dinesh G.</span>
+          </motion.div>
+
+          {/* Main Heading */}
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.7 }}
+            className="mb-6 text-[48px] font-extrabold leading-[0.98] tracking-tight sm:text-[60px] md:text-[64px] lg:text-[78px]"
+          >
+            <span className="block text-white">Full Stack</span>
+
+            <span className="block bg-gradient-to-r from-orange-400 via-orange-500 to-orange-300 bg-clip-text text-transparent">
+              Developer
+            </span>
           </motion.h1>
 
-          {/* Typing animation */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="mb-6 text-xl font-medium text-[#F97316] md:text-2xl"
-          >
-            {(() => {
-              const TypeAnimComp = typeof TypeAnimation === 'function' ? TypeAnimation : (TypeAnimation?.default || TypeAnimation);
-              return (
-                <TypeAnimComp
-                  sequence={[
-                    'Full Stack Developer', 2000,
-                    'Java Developer', 2000,
-                    'UI/UX Designer', 2000,
-                  ]}
-                  wrapper="span"
-                  repeat={Infinity}
-                  cursor
-                />
-              );
-            })()}
-          </motion.div>
+          {/* Description */}
 
-          {/* Bio paragraph */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="mb-6 text-[#CBD5E1] text-justify leading-relaxed mx-auto md:mx-0"
+            transition={{ delay: 0.55 }}
+            className="mb-4 max-w-[570px] text-base leading-7 text-slate-300 sm:text-lg"
           >
-            A passionate Computer Science Engineering student dedicated to building scalable,
-            high-performance web applications. Proficient in Java, React, Node.js, and modern
-            database systems. I thrive on solving real-world problems through elegant code and
-            continuously evolving with the latest technologies.
+            I build exceptional and responsive web applications that provide
+            seamless user experiences.
           </motion.p>
 
-          {/* CTA Buttons */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="mb-8 max-w-[570px] text-sm leading-6 text-slate-400 sm:text-base"
+          >
+            Passionate about clean code, problem solving and turning ideas into
+            real-world solutions using Java, React, Node.js and modern database
+            technologies.
+          </motion.p>
+
+          {/* Buttons */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-            className="mb-8 flex flex-wrap items-center justify-center gap-4 md:justify-start"
+            transition={{ delay: 0.9 }}
+            className="mb-8 flex flex-wrap gap-4"
           >
-            <a href="#contact" className="btn-primary">
-              Hire Me
+            <a
+              href="#projects"
+              className="group flex items-center gap-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-400 px-7 py-3.5 font-semibold text-black shadow-[0_10px_35px_rgba(249,115,22,.25)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_15px_45px_rgba(249,115,22,.4)]"
+            >
+              View My Work
+              <span className="text-xl transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </a>
-            <a href={resumePdf} download="Dinesh_G_Resume.pdf" className="btn-secondary">
-              <FaDownload className="text-sm" /> Download Resume
+
+            <a
+              href="#contact"
+              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-7 py-3.5 font-semibold text-slate-200 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:text-orange-400"
+            >
+              Contact Me
+              <FaEnvelope />
             </a>
           </motion.div>
 
-          {/* Social icons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3, duration: 0.6 }}
-            className="flex items-center justify-center gap-4 md:justify-start"
-          >
+          {/* Social Icons */}
+
+          <div className="mb-8 flex gap-3">
             {[
-              { Icon: FaGithub, href: 'https://github.com/Dinesh-G035', label: 'GitHub' },
-              { Icon: FaLinkedin, href: 'https://linkedin.com/in/dineshg09', label: 'LinkedIn' },
-              { Icon: FaEnvelope, href: 'mailto:dineshcse3778@gmail.com', label: 'Email' },
-              { Icon: SiLeetcode, href: 'https://leetcode.com/Dinesh_G05', label: 'LeetCode' },
-            ].map(({ Icon, href, label }) => (
-              <a
-                key={label}
+              {
+                Icon: FaGithub,
+                href: "https://github.com/Dinesh-G035",
+              },
+              {
+                Icon: FaLinkedin,
+                href: "https://linkedin.com/in/dineshg09",
+              },
+              {
+                Icon: FaEnvelope,
+                href: "mailto:dineshcse3778@gmail.com",
+              },
+              {
+                Icon: SiLeetcode,
+                href: "https://leetcode.com/Dinesh_G05",
+              },
+            ].map(({ Icon, href }, index) => (
+              <motion.a
+                key={index}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(255,255,255,.08)] text-[#94A3B8] transition-all duration-300 hover:border-[#F97316] hover:text-[#F97316] hover:shadow-[0_0_20px_rgba(249,115,22,.25)]"
+                whileHover={{ y: -5 }}
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.02] text-slate-400 transition hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-400"
               >
-                <Icon className="text-lg" />
-              </a>
+                <Icon />
+              </motion.a>
             ))}
+          </div>
+
+          {/* ================= STATS ================= */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1 }}
+            className="max-w-[650px] rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4 backdrop-blur-xl"
+          >
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <Stat Icon={FaLaptopCode} number="20+" label="Projects" />
+
+              <Stat Icon={FaRocket} number="2+" label="Years Exp." />
+
+              <Stat Icon={FaCogs} number="10+" label="Technologies" />
+
+              <Stat Icon={FaUserFriends} number="5+" label="Happy Clients" />
+            </div>
           </motion.div>
         </motion.div>
 
-        {/* ═══════════════ RIGHT COLUMN ═══════════════ */}
+        {/* ==================================================
+    RIGHT SIDE - PROFILE
+================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, x: 60 }}
+          initial={{ opacity: 0, x: 70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+          transition={{
+            duration: 1,
+            delay: 0.3,
+            ease: "easeOut",
+          }}
           className="order-1 flex items-center justify-center md:order-2"
         >
-          <div className="relative">
-            {/* Orange glowing ring */}
-            <div className="absolute inset-0 m-auto h-[280px] w-[280px] rounded-full md:h-[340px] md:w-[340px] animate-spin-slow border-2 border-dashed border-[#F97316]/30" />
+          <div className="relative h-[560px] w-[560px] sm:h-[620px] sm:w-[620px]">
+            {/* ================= OUTER DOTTED ORBIT ================= */}
 
-            {/* Gradient blur behind image */}
-            <div className="absolute inset-0 m-auto h-[250px] w-[250px] rounded-full md:h-[300px] md:w-[300px] bg-[#F97316]/10 blur-[60px]" />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 35,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="
+        absolute
+        left-1/2
+        top-1/2
+        h-[500px]
+        w-[500px]
+        -translate-x-1/2
+        -translate-y-1/2
+        rounded-full
+        border
+        border-dashed
+        border-orange-500/35
+        sm:h-[550px]
+        sm:w-[550px]
+      "
+            />
 
-            {/* Profile image */}
-            <div className="relative z-10 overflow-hidden rounded-full border-4 border-[#F97316]/40 bg-[#111827] shadow-[0_0_60px_rgba(249,115,22,.2)] md:h-[290px] md:w-[290px] h-[240px] w-[240px]">
+            {/* ================= ORBIT DOTS ================= */}
+
+            <span className="absolute left-[8%] top-[35%] z-20 h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_15px_#F97316]" />
+
+            <span className="absolute right-[8%] top-[35%] z-20 h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_15px_#F97316]" />
+
+            <span className="absolute left-[25%] top-[7%] z-20 h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_15px_#F97316]" />
+
+            <span className="absolute right-[25%] top-[7%] z-20 h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_15px_#F97316]" />
+
+            <span className="absolute bottom-[10%] left-[27%] z-20 h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_15px_#F97316]" />
+
+            <span className="absolute bottom-[10%] right-[27%] z-20 h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_15px_#F97316]" />
+
+            {/* ================= ORANGE GLOW ================= */}
+
+            <div
+              className="
+        absolute
+        left-1/2
+        top-1/2
+        h-[430px]
+        w-[430px]
+        -translate-x-1/2
+        -translate-y-1/2
+        rounded-full
+        bg-orange-500/10
+        blur-[70px]
+      "
+            />
+
+            {/* ================= OUTER ORANGE RING ================= */}
+
+            <div
+              className="
+        absolute
+        left-1/2
+        top-1/2
+        h-[430px]
+        w-[430px]
+        -translate-x-1/2
+        -translate-y-1/2
+        rounded-full
+        border
+        border-orange-500/70
+        shadow-[0_0_40px_rgba(249,115,22,.18)]
+        sm:h-[460px]
+        sm:w-[460px]
+      "
+            />
+
+            {/* ================= INNER ORANGE RING ================= */}
+
+            <div
+              className="
+        absolute
+        left-1/2
+        top-1/2
+        h-[410px]
+        w-[410px]
+        -translate-x-1/2
+        -translate-y-1/2
+        rounded-full
+        border-2
+        border-orange-500/80
+        sm:h-[440px]
+        sm:w-[440px]
+      "
+            />
+
+            {/* ================= PROFILE IMAGE ================= */}
+
+            <div
+              className="
+        absolute
+        left-1/2
+        top-1/2
+        z-10
+        h-[390px]
+        w-[390px]
+        -translate-x-1/2
+        -translate-y-1/2
+        overflow-hidden
+        rounded-full
+        border-4
+        border-orange-500/70
+        bg-[#ffffff]
+        shadow-[0_0_70px_rgba(249,115,22,.25)]
+        sm:h-[400px]
+        sm:w-[400px]
+      "
+            >
               <img
                 src={profileImage}
                 alt="Dinesh G"
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full absolute right-2"
               />
+
+              {/* Soft image glow */}
+              <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-orange-500/10 via-transparent to-transparent" />
             </div>
 
-            {/* Floating tech icons */}
-            {floatingIcons.map(({ Icon, color, x, y, delay }, i) => (
-              <motion.div
-                key={i}
-                className="absolute left-1/2 top-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-xl glass-card"
-                style={{ color }}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  x,
-                  y,
-                }}
-                transition={{ delay: 1 + delay, duration: 0.5, type: 'spring' }}
-              >
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: 'easeInOut', delay: delay }}
-                >
-                  <Icon className="text-lg" />
-                </motion.div>
-              </motion.div>
-            ))}
+            {/* ==================================================
+        TOP LEFT - REACT
+    ================================================== */}
 
-            {/* Floating badge */}
+            <TechIcon
+              Icon={SiReact}
+              color="#61DAFB"
+              position="left-[7%] top-[8%]"
+              delay={0}
+            />
+
+            {/* ==================================================
+        TOP RIGHT - JAVA
+    ================================================== */}
+
+            <TechIcon
+              Icon={FaJava}
+              color="#FF9800"
+              position="right-[7%] top-[8%]"
+              delay={0.2}
+            />
+
+            {/* ==================================================
+        LEFT - JAVA / CODE
+    ================================================== */}
+
+            <TechIcon
+              Icon={FaLaptopCode}
+              color="#FF7300"
+              position="left-[0%] top-[38%]"
+              delay={0.4}
+            />
+
+            {/* ==================================================
+        RIGHT - NODE
+    ================================================== */}
+
+            <TechIcon
+              Icon={SiNodedotjs}
+              color="#55C646"
+              position="right-[0%] top-[38%]"
+              delay={0.6}
+            />
+
+            {/* ==================================================
+        BOTTOM LEFT - MONGODB
+    ================================================== */}
+
+            <TechIcon
+              Icon={SiMongodb}
+              color="#47A248"
+              position="left-[12%] bottom-[10%]"
+              delay={0.8}
+            />
+
+            {/* ==================================================
+        BOTTOM RIGHT - POSTGRESQL
+    ================================================== */}
+
+            <TechIcon
+              Icon={SiPostgresql}
+              color="#4D91D9"
+              position="right-[12%] bottom-[10%]"
+              delay={1}
+            />
+
+            {/* ================= DEVELOPER BADGE ================= */}
+
             <motion.div
-              className="absolute -bottom-8 left-2/4 z-20 -translate-x-1/2 whitespace-nowrap rounded-full glass-card px-6 py-2 text-xs font-semibold text-[#F97316] shadow-[0_0_20px_rgba(249,115,22,.15)]"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6, duration: 0.5 }}
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 1.5,
+                duration: 0.6,
+              }}
+              className="
+        absolute
+        bottom-[-5px]
+        left-1/2
+        z-50
+        -translate-x-1/2
+        whitespace-nowrap
+        rounded-full
+        border
+        border-orange-500
+        bg-[#080D18]
+        px-8
+        py-3
+        text-sm
+        font-semibold
+        text-orange-400
+        shadow-[0_0_35px_rgba(249,115,22,.25)]
+        backdrop-blur-xl
+        sm:px-10
+        sm:py-4
+        sm:text-base
+      "
             >
               🚀 Full Stack Developer
             </motion.div>
@@ -197,6 +500,22 @@ const Hero = () => {
         </motion.div>
       </div>
     </section>
+  );
+};
+
+/* =========================================================
+   STAT COMPONENT
+========================================================= */
+
+const Stat = ({ Icon, number, label }) => {
+  return (
+    <div className="group rounded-xl p-3 transition duration-300 hover:bg-orange-500/[0.04]">
+      <Icon className="mb-2 text-xl text-orange-500" />
+
+      <div className="text-xl font-bold text-white">{number}</div>
+
+      <div className="text-xs text-slate-500">{label}</div>
+    </div>
   );
 };
 
