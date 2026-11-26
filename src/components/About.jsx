@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
-  FaLaptopCode, FaLayerGroup, FaServer, FaDatabase, FaPaintBrush, FaRocket,
+  FaLaptopCode, FaLayerGroup, FaServer, FaPaintBrush,
 } from 'react-icons/fa';
+import { FaJava } from 'react-icons/fa6';
 
 /* ── Smooth 60fps Animated Counter ──────────────────────────── */
 const AnimatedNumber = ({ value, suffix, duration = 2.5 }) => {
@@ -34,34 +35,30 @@ const AnimatedNumber = ({ value, suffix, duration = 2.5 }) => {
 /* ── Services data ───────────────────────────────────────────── */
 const services = [
   {
+    icon: FaLayerGroup,
+    title: 'Full Stack Development',
+    desc: 'Building scalable applications using the MERN stack with clean architecture and RESTful APIs.',
+  },
+  {
     icon: FaLaptopCode,
     title: 'Website Development',
     desc: 'Building responsive, performant websites using React and Tailwind CSS with modern design patterns.',
   },
   {
-    icon: FaLayerGroup,
-    title: 'Full Stack Development',
-    desc: 'Building scalable applications using the MERN stack with clean architecture and RESTful APIs.',
+    icon: FaJava,
+    title: 'Java Development',
+    desc: 'Developing object-oriented Java applications and backend services with Spring Boot, REST APIs, and relational databases.',
   },
   {
     icon: FaServer,
     title: 'Backend API Development',
     desc: 'Creating secure REST APIs with JWT authentication, middleware, and robust error handling.',
   },
-  {
-    icon: FaDatabase,
-    title: 'Database Design',
-    desc: 'Designing optimized schemas with MongoDB, MySQL, and PostgreSQL for high-performance applications.',
-  },
+
   {
     icon: FaPaintBrush,
     title: 'UI/UX Design',
     desc: 'Crafting wireframes, responsive layouts, and polished prototypes that delight users.',
-  },
-  {
-    icon: FaRocket,
-    title: 'Deployment',
-    desc: 'Deploying and managing applications on Render, Netlify, and Vercel for production readiness.',
   },
 ];
 
@@ -98,11 +95,11 @@ const About = () => {
                     <br />
                     <span className="ml-4 text-[#98C379]">&nbsp;&nbsp;role</span>
                     <span className="text-[#94A3B8]">: </span>
-                    <span className="text-[#CE9178]">"Full Stack Dev"</span>,
+                    <span className="text-[#CE9178]">"Full Stack Developer"</span>,
                     <br />
-                    <span className="ml-4 text-[#98C379]">&nbsp;&nbsp;loves</span>
+                    <span className="ml-4 text-[#98C379]">&nbsp;&nbsp;interest</span>
                     <span className="text-[#94A3B8]">: </span>
-                    <span className="text-[#CE9178]">"Building"</span>,
+                    <span className="text-[#CE9178]">"Problem Solving"</span>,
                     <br />
                     <span className="text-[#94A3B8]">{'};'}</span>
                   </div>
@@ -128,7 +125,7 @@ const About = () => {
               algorithmic problems, and continuously improving my technical skills.
             </p>
             <p className="text-[#CBD5E1] leading-relaxed text-justify">
-              My interests include backend development and UI/UX design. I love learning new technologies and transforming 
+              My interests include Web development and UI/UX design. I love learning new technologies and transforming 
               ideas into real world software that makes a difference.
             </p>
           </motion.div>

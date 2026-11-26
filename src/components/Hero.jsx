@@ -229,22 +229,7 @@ const Hero = () => {
 
           {/* ================= STATS ================= */}
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1 }}
-            className="max-w-[650px] rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4 backdrop-blur-xl"
-          >
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <Stat Icon={FaLaptopCode} number="20+" label="Projects" />
-
-              <Stat Icon={FaRocket} number="2+" label="Years Exp." />
-
-              <Stat Icon={FaCogs} number="10+" label="Technologies" />
-
-              <Stat Icon={FaUserFriends} number="5+" label="Happy Clients" />
-            </div>
-          </motion.div>
+        
         </motion.div>
 
         {/* ==================================================

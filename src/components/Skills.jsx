@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { skills } from '../data/skills';
 import {
   FaCode, FaReact, FaServer, FaDatabase, FaTools,
-  FaJs, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaGithub,
+  FaJs, FaPython, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaGithub,
   FaUbuntu, FaFigma, FaPalette,
 } from 'react-icons/fa';
 import { FaJava } from 'react-icons/fa6';
@@ -18,6 +18,7 @@ import {
 const iconMap = {
   FaJava,
   FaJs,
+  FaPython,
   FaHtml5,
   FaCss3Alt,
   FaDatabase,

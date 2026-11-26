@@ -6,6 +6,7 @@ export const skills = [
       { name: 'Java', icon: 'FaJava', color: '#ED8B00' },
       { name: 'C', icon: 'FaC', color: '#4479A1' },
       { name: 'JavaScript', icon: 'FaJs', color: '#F7DF1E' },
+      { name: 'Python', icon: 'FaPython', color: '#3776AB' },
     ],
   },
   {
