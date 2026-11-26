@@ -25,7 +25,7 @@ const Modal = ({ project, onClose }) => {
       <div className="absolute inset-0 bg-black/60" onClick={onClose} />
 
       <motion.div
-        className="relative z-50 w-full max-w-3xl py-15 rounded-2xl bg-[#0B1220] p-6 shadow-xl border border-[rgba(255,255,255,.04)]"
+        className="relative z-50 max-h-[90vh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto rounded-2xl border border-[rgba(255,255,255,.04)] bg-[#0B1220] p-6 shadow-xl sm:p-8"
         variants={modalAnim}
         initial="hidden"
         animate="visible"
@@ -49,10 +49,37 @@ const Modal = ({ project, onClose }) => {
           <div className="md:col-span-2">
             <p className="text-sm text-[#CBD5E1] leading-relaxed">{project.description}</p>
 
-            {project.role && (
-              <div className="mt-4">
-                <h4 className="text-sm font-semibold text-white pb-1">My Role</h4>
-                <p className="text-sm text-[#CBD5E1]">{project.role}</p>
+            {(project.role || project.organization || project.duration) && (
+              <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+                {project.role && (
+                  <div>
+                    <dt className="text-sm font-semibold text-white">Role</dt>
+                    <dd className="text-sm text-[#CBD5E1]">{project.role}</dd>
+                  </div>
+                )}
+                {project.organization && (
+                  <div>
+                    <dt className="text-sm font-semibold text-white">Organization</dt>
+                    <dd className="text-sm text-[#CBD5E1]">{project.organization}</dd>
+                  </div>
+                )}
+                {project.duration && (
+                  <div>
+                    <dt className="text-sm font-semibold text-white">Duration</dt>
+                    <dd className="text-sm text-[#CBD5E1]">{project.duration}</dd>
+                  </div>
+                )}
+              </dl>
+            )}
+
+            {project.highlights?.length > 0 && (
+              <div className="mt-5">
+                <h4 className="text-sm font-semibold text-white">Highlights</h4>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-relaxed text-[#CBD5E1]">
+                  {project.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
               </div>
             )}
           </div>

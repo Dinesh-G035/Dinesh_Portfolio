@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Modal from './Modal';
 
 const ProjectCard = ({ project, index }) => {
@@ -35,36 +34,17 @@ const ProjectCard = ({ project, index }) => {
 
         {/* ── Content ── */}
         <div className="flex flex-1 flex-col p-6">
-          <h3 className="mb-2 text-xl font-bold text-white group-hover:text-[#F97316] transition-colors duration-300">
+          <h3 className="mb-2 min-h-[3.5rem] line-clamp-2 text-xl font-bold text-white group-hover:text-[#F97316] transition-colors duration-300">
             {project.title}
           </h3>
 
           {project.category && (
-            <p className="mb-4 text-sm text-[#94A3B8]">{project.category}</p>
+            <p className="mb-4 min-h-5 text-sm text-[#94A3B8]">{project.category}</p>
           )}
 
-          <div className="flex items-center gap-3">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => e.stopPropagation()} // prevent modal when clicking link
-              className="flex items-center gap-2 rounded-lg border border-[rgba(255,255,255,.08)] px-4 py-2 text-sm text-[#CBD5E1] transition-all hover:border-[#F97316] hover:text-[#F97316]"
-              aria-label={`View ${project.title} on GitHub`}
-            >
-              <FaGithub /> GitHub
-            </a>
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-2 rounded-lg bg-[#F97316] px-4 py-2 text-sm font-medium text-white transition-all hover:shadow-[0_0_20px_rgba(249,115,22,.4)]"
-              aria-label={`${project.liveLabel || 'Live Demo'} for ${project.title}`}
-            >
-              <FaExternalLinkAlt className="text-xs" /> {project.liveLabel || 'Live Demo'}
-            </a>
-          </div>
+          <p className="mb-5 min-h-[4.5rem] line-clamp-3 text-sm leading-6 text-[#CBD5E1]">
+            {project.description}
+          </p>
         </div>
       </motion.div>
 

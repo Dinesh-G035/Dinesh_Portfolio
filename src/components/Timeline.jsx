@@ -67,15 +67,36 @@ const Timeline = () => {
 
                 {/* Content card */}
                 <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${isLeft ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
-                  <div className="glass-card glass-card-hover rounded-2xl p-5">
-                    <span
-                      className="inline-block rounded-full px-3 py-1 text-xs font-semibold mb-2"
-                      style={{ backgroundColor: `${color}20`, color }}
-                    >
-                      {item.year}
-                    </span>
-                    <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
-                    <p className="text-sm text-[#94A3B8] leading-relaxed">{item.description}</p>
+                  <div className="glass-card glass-card-hover rounded-2xl p-4 text-center">
+                    
+                    <h3 className="mb-1 text-lg font-bold text-white">{item.title}</h3>
+                    {item.subtitle && (
+                      <p className="mb-2 text-sm font-medium text-[#CBD5E1]">{item.subtitle}</p>
+                    )}
+                    {item.period && (
+                      <span
+                        className="mb-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+                        style={{ backgroundColor: `${color}20`, color }}
+                      >
+                        {item.period}
+                      </span>
+                    )}
+                    {item.organization && (
+                      <p className="mb-2 text-sm text-[#94A3B8]">{item.organization}</p>
+                    )}
+                    {item.project && (
+                      <p className="mb-2 text-sm text-[#94A3B8]">
+                        <span className="font-medium text-[#CBD5E1]">Project:</span> {item.project}
+                      </p>
+                    )}
+                    <p className="text-sm leading-relaxed text-[#94A3B8]">{item.description}</p>
+                    {item.details?.length > 0 && (
+                      <ul className="mt-3 list-disc space-y-1 pl-5 text-left text-sm leading-relaxed text-[#94A3B8]">
+                        {item.details.map((detail) => (
+                          <li key={detail}>{detail}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               </motion.div>
