@@ -89,16 +89,6 @@ export const timelineData = [
     type: 'achievement'
   },
   {
-    title: 'Code-a-thon Techincl Event',
-    subtitle: 'Coordinator',
-    description: 'Organized and coordinated coding competition activities.',
-    details: [
-      'Managed event planning, participant coordination, and execution.',
-      'Worked with the team to ensure smooth event operations.'
-    ],
-    type: 'work'
-  },
-  {
     title: 'ICT Academy - Open Weaver Hackathon 2025',
     subtitle: 'Finalist',
     project: 'Waste Management Solution',
@@ -115,6 +105,16 @@ export const timelineData = [
     organization: 'Sona College of Technology',
     description: 'Recognized for creativity, visual communication, branding, and graphic design in an innovative logo redesign.',
     type: 'achievement'
+  },
+  {
+    title: 'Code-a-thon Techincl Event',
+    subtitle: 'Coordinator',
+    description: 'Organized and coordinated coding competition activities.',
+    details: [
+      'Managed event planning, participant coordination, and execution.',
+      'Worked with the team to ensure smooth event operations.'
+    ],
+    type: 'work'
   },
   {
     title: 'UI/UX Workshop Organizer',
